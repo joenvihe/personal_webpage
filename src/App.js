@@ -1,42 +1,22 @@
-import React from 'react';
-import { Layout, Menu } from 'antd';
-import { Link } from 'react-router-dom';
-
-import './App.css';
-
-const { Header, Content, Footer } = Layout;
-
-function NavigationBar() {
-  return (
-    <Header>
-      <Menu theme="dark" mode="horizontal">
-        <Menu.Item key="home">
-          <Link to="/">Home</Link>
-        </Menu.Item>
-        <Menu.Item key="projects">
-          <Link to="/projects">Projects</Link>
-        </Menu.Item>
-        <Menu.Item key="blog">
-          <Link to="/blog">Blog</Link>
-        </Menu.Item>
-      </Menu>
-    </Header>
-  );
-}
-
-function App() {
-  return (
-    <Layout className="layout">
-      <NavigationBar />
-      <Content style={{ padding: '0 50px' }}>
-        <div className="site-layout-content">Hello World</div>
-      </Content>
-      <Footer style={{ textAlign: 'center' }}>
-        Personal Webpage ©{new Date().getFullYear()} Created by You
-      </Footer>
-    </Layout>
-  );
+import React, { Component } from 'react';
+import Header from './components/Header';
+import About from './components/About';
+import Portfolio from './components/Portfolio';
+import ContactUs from './components/ContactUs';
+import Footer from './components/Footer';
+import resumeData from './resumeData';
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Header resumeData={resumeData}/>
+        <About resumeData={resumeData}/>
+        <Portfolio resumeData={resumeData}/>
+        <ContactUs resumeData={resumeData}/>
+        <Footer resumeData={resumeData}/>
+      </div>
+    );
+  }
 }
 
 export default App;
-
