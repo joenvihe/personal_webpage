@@ -1,22 +1,33 @@
-import React, { Component } from 'react';
+import {Routes, Route, BrowserRouter, useNavigate} from 'react-router-dom';
 import Header from './components/Header';
 import About from './components/About';
-import Portfolio from './components/Portfolio';
-import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
+import Chatbot from './components/Chatbot';
 import resumeData from './resumeData';
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Header resumeData={resumeData}/>
-        <About resumeData={resumeData}/>
-        <Portfolio resumeData={resumeData}/>
-        <ContactUs resumeData={resumeData}/>
+
+function App() {
+  const navigate = useNavigate();
+  return (
+    <div>
+      <div>
+        <Header resumeData={resumeData} navigate={navigate}/>
+        <Routes>
+          <Route path="/chatbot" element={<Chatbot />} />
+          <Route path="/" element={<About resumeData={resumeData} />} />
+        </Routes>
         <Footer resumeData={resumeData}/>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
-export default App;
+
+function AppWrapper() {
+  return (
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  );
+}
+
+export default AppWrapper;

@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 export default class Footer extends Component {
   render() {
     let resumeData = this.props.resumeData;
+    const isChatbotRoute = window.location.pathname === '/chatbot';
+
     return (
       <footer>
       <div className="row">
@@ -21,7 +23,13 @@ export default class Footer extends Component {
           </ul>
           
         </div>
-        <div id="go-top"><a className="smoothscroll" title="Back to Top" href="#home"><i className="icon-up-open" /></a></div>
+        <div id="go-top">
+        {!isChatbotRoute && (
+          <a className="smoothscroll" title="Back to Top" href="#home">
+            <i className="icon-up-open" />
+          </a>
+        )}
+        </div>
       </div>
     </footer>
     );
