@@ -1,6 +1,6 @@
 let resumeData = {
     "imagebaseurl":"https://joenvihe.github.io/",
-    "name": "Enrique Vicente",
+    "name": "Jorge Enrique Vicente Hernández",
     "role": "Software Engineer",
     "linkedinId":"joenvihe",
     "skypeid": "Your skypeid",
